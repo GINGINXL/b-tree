@@ -51,7 +51,7 @@ const PROFILE = {
 const SOCIALS = [
   {
     "label": "IG",
-    "url": "https://www.instagram.com/bosstalk1111/"
+    "url": "https://www.instagram.com/taozi00621/"
   },
   {
     "label": "@",
@@ -67,8 +67,8 @@ const LINKS = [
     "group": "社群",
     "icon": "📸",
     "title": "Instagram",
-    "sub": "@bosstalk1111",
-    "url": "https://www.instagram.com/bosstalk1111/",
+    "sub": "@taozi00621",
+    "url": "https://www.instagram.com/taozi00621/",
     "featured": true
   },
   {
@@ -86,6 +86,7 @@ const LINKS = [
     "url": "https://x.com/Taozi006"
   }
 ];
+const UI = {"share": "⤴ 分享", "copied": "已複製連結", "soon": "連結準備中，敬請期待 ✨"};
 /* ===================================== */
 
 const $ = id => document.getElementById(id);
@@ -93,7 +94,7 @@ $("name").textContent = PROFILE.name; $("bio").textContent = PROFILE.bio; $("foo
 if (PROFILE.avatarImg) { const i = document.createElement("img"); i.src = PROFILE.avatarImg; i.alt = PROFILE.name; $("avatar").appendChild(i); }
 else $("avatar").textContent = PROFILE.avatarEmoji || "🙂";
 SOCIALS.forEach(s => { const a = document.createElement("a"); a.href = s.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = s.label; $("socials").appendChild(a); });
-if (!LINKS.length) { const d = document.createElement("div"); d.className = "soon"; d.textContent = "連結準備中，敬請期待 ✨"; $("groups").appendChild(d); }
+if (!LINKS.length) { const d = document.createElement("div"); d.className = "soon"; d.textContent = UI.soon; $("groups").appendChild(d); }
 const groups = {}; LINKS.forEach(l => (groups[l.group || ""] ||= []).push(l));
 Object.entries(groups).forEach(([g, items]) => {
   if (g) { const h = document.createElement("div"); h.className = "section"; h.textContent = g; $("groups").appendChild(h); }
